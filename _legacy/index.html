@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew Tolentino</title>
+  <link rel="stylesheet" href="https://use.typekit.net/sdi1oob.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Hero Section (cream background) -->
+  <section class="hero">
+    <div class="hero-content reveal">
+      <h1 class="hero-greeting">Hey, I'm Andrew!</h1>
+      <p class="hero-subtitle">
+        I'm a design coach and the founder of Honest Club.<br>
+        Also a baker, ceramicist, and podcast co-host.
+      </p>
+    </div>
+    <div class="hero-illustration">
+      <img src="assets/andrew.svg" alt="Illustration of Andrew Tolentino">
+    </div>
+  </section>
+
+  <!-- Main Content Section (dark green background) -->
+  <main class="main-content">
+    <div class="content-wrapper">
+
+      <!-- Currently -->
+      <section class="content-section reveal">
+        <h2 class="section-heading">Currently</h2>
+        <h3 class="section-title"><a href="https://honestclub.co" target="_blank" rel="noopener">Professional Design & Life Coach at Honest Club</a></h3>
+        <div class="section-body">
+          <p>After 14+ years in product design—and the last several managing design teams—I left to do the work I kept wishing existed when I was navigating my own career.</p>
+          <p>I'm the founder of Honest Club, a coaching practice and community for product designers who need more than generic career advice. I work with career changers, designers from non-traditional backgrounds, and ICs making the move into management. My approach is simple: teach the fundamentals, then help you apply them to your reality—because the advice isn't wrong, it's just incomplete.</p>
+          <p>I'm a Co-Active Practitioner (CAP) trained through CTI, working toward full ICF accreditation.</p>
+        </div>
+      </section>
+
+      <!-- Previously -->
+      <section class="content-section reveal">
+        <h2 class="section-heading">Previously</h2>
+        <div class="engagement-item">
+          <h3 class="section-title">Product Design Manager II at Credit Karma</h3>
+          <p class="item-detail">October 2011 - April 2026</p>
+        </div>
+        <hr class="divider">
+        <div class="engagement-item">
+          <h3 class="section-title">Lead Production/UX Designer at QualityHealth</h3>
+          <p class="item-detail">May 2009 - September 2011</p>
+        </div>
+      </section>
+
+      <!-- Noted Engagements -->
+      <section class="content-section reveal">
+        <h2 class="section-heading">Noted engagements</h2>
+        <div class="engagement-item">
+          <h3 class="section-title"><a href="assets/Designing-for-Community-Wellness-AMC-Workshop.pdf" target="_blank" rel="noopener">It Takes a Village: Designing for Community Wellness</a></h3>
+          <p class="item-detail">Allied Media Conference Workshop, July 25, 2020</p>
+        </div>
+        <hr class="divider">
+        <div class="engagement-item">
+          <h3 class="section-title"><a href="https://rootspodcast.design/podcast/andrewtolentino" target="_blank" rel="noopener">Ep 64: The Vocal Designer</a></h3>
+          <p class="item-detail">Roots Podcast, March 1, 2020</p>
+        </div>
+        <hr class="divider">
+        <div class="engagement-item">
+          <h3 class="section-title"><a href="https://adplist.org/mentors/andrew-tolentino" target="_blank" rel="noopener">ADPList Mentor</a></h3>
+          <p class="item-detail">Mentorship and coaching for aspiring designers</p>
+        </div>
+      </section>
+
+      <!-- Some Fun Things -->
+      <section class="content-section reveal">
+        <h2 class="section-heading">Some fun things</h2>
+        <div class="engagement-item">
+          <h3 class="section-title"><a href="https://caketherapy.com" target="_blank" rel="noopener">Cake Therapy</a></h3>
+          <p class="item-detail">Pop-up Filipino & Asian bakery in San Francisco</p>
+        </div>
+        <hr class="divider">
+        <div class="engagement-item">
+          <h3 class="section-title"><a href="https://kuya.studio" target="_blank" rel="noopener">Kuya Studio</a></h3>
+          <p class="item-detail">Pottery and ceramics studio</p>
+        </div>
+        <hr class="divider">
+        <div class="engagement-item">
+          <h3 class="section-title"><a href="https://getswicy.com" target="_blank" rel="noopener">Swicy</a></h3>
+          <p class="item-detail">Weekly podcast co-host about hot takes on life, culture, food, and more</p>
+        </div>
+      </section>
+
+      <!-- Find Me -->
+      <section class="content-section reveal reveal-stagger">
+        <h2 class="section-heading">Find me</h2>
+        <div class="social-links">
+          <a href="resume.html" class="social-link">Resume</a>
+          <a href="https://www.linkedin.com/in/atolentino" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:andrewjtolentino@gmail.com" class="social-link">Email</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
