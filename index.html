@@ -14,13 +14,21 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="resume.css">
   <script>
-    if (localStorage.getItem('theme') === 'leaf') {
-      document.documentElement.setAttribute('data-theme', 'leaf');
-    }
+    (function () {
+      var el = localStorage.getItem('element');
+      if (el === 'water' || el === 'earth' || el === 'fire') {
+        document.documentElement.setAttribute('data-theme', el);
+      }
+    })();
   </script>
 </head>
 <body>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Switch color theme"></button>
+  <nav class="element-switch" aria-label="Color theme">
+    <button data-element="air" title="Air">💨</button>
+    <button data-element="water" title="Water">🌊</button>
+    <button data-element="earth" title="Earth">🪨</button>
+    <button data-element="fire" title="Fire">🔥</button>
+  </nav>
   <main class="page">
 
     <!-- Intro -->
@@ -231,27 +239,27 @@
   </main>
 
   <script>
-    const toggle = document.getElementById('theme-toggle');
     const root = document.documentElement;
+    const buttons = document.querySelectorAll('.element-switch button');
 
-    function paintLabel() {
-      const leafy = root.getAttribute('data-theme') === 'leaf';
-      toggle.textContent = leafy ? '🌅 sun mode' : '🌿 leaf mode';
+    function paintActive() {
+      const current = root.getAttribute('data-theme') || 'air';
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.element === current));
     }
 
-    toggle.addEventListener('click', () => {
-      const leafy = root.getAttribute('data-theme') === 'leaf';
-      if (leafy) {
+    buttons.forEach(b => b.addEventListener('click', () => {
+      const el = b.dataset.element;
+      if (el === 'air') {
         root.removeAttribute('data-theme');
-        localStorage.removeItem('theme');
+        localStorage.removeItem('element');
       } else {
-        root.setAttribute('data-theme', 'leaf');
-        localStorage.setItem('theme', 'leaf');
+        root.setAttribute('data-theme', el);
+        localStorage.setItem('element', el);
       }
-      paintLabel();
-    });
+      paintActive();
+    }));
 
-    paintLabel();
+    paintActive();
   </script>
 </body>
 </html>
