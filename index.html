@@ -13,8 +13,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="resume.css">
+  <script>
+    if (localStorage.getItem('theme') === 'leaf') {
+      document.documentElement.setAttribute('data-theme', 'leaf');
+    }
+  </script>
 </head>
 <body>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch color theme"></button>
   <main class="page">
 
     <!-- Intro -->
@@ -223,5 +229,29 @@
     </footer>
 
   </main>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+
+    function paintLabel() {
+      const leafy = root.getAttribute('data-theme') === 'leaf';
+      toggle.textContent = leafy ? '🌅 sun mode' : '🌿 leaf mode';
+    }
+
+    toggle.addEventListener('click', () => {
+      const leafy = root.getAttribute('data-theme') === 'leaf';
+      if (leafy) {
+        root.removeAttribute('data-theme');
+        localStorage.removeItem('theme');
+      } else {
+        root.setAttribute('data-theme', 'leaf');
+        localStorage.setItem('theme', 'leaf');
+      }
+      paintLabel();
+    });
+
+    paintLabel();
+  </script>
 </body>
 </html>

@@ -8,13 +8,22 @@
   box-sizing: border-box;
 }
 
+/* Sun mode (default): warm cream, sunrise ambers */
 :root {
   --cream: #faf6ec;
-  --forest: #1f2e1a;
-  --forest-soft: #55614b;
-  --rule: rgba(31, 46, 26, 0.14);
+  --forest: #43301c;
+  --forest-soft: #94703d;
+  --rule: rgba(67, 48, 28, 0.16);
 
   --font-sans: 'DM Sans', sans-serif;
+}
+
+/* Leaf mode: deep forest, pale foliage */
+:root[data-theme="leaf"] {
+  --cream: #1e2a18;
+  --forest: #ecf2df;
+  --forest-soft: #a3b48d;
+  --rule: rgba(236, 242, 223, 0.18);
 }
 
 html {
@@ -28,6 +37,31 @@ body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--forest-soft);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--forest);
+  border-color: var(--forest-soft);
 }
 
 .page {
@@ -269,13 +303,15 @@ a:hover {
 @media print {
   body {
     background: #ffffff;
+    color: #43301c;
   }
 
   .page {
     padding: 0;
   }
 
-  .portrait {
+  .portrait,
+  .theme-toggle {
     display: none;
   }
 
