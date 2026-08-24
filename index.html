@@ -24,11 +24,12 @@
 </head>
 <body>
   <nav class="element-switch" aria-label="Color theme">
-    <button data-element="air" title="Air">💨</button>
-    <button data-element="water" title="Water">🌊</button>
-    <button data-element="earth" title="Earth">🪨</button>
-    <button data-element="fire" title="Fire">🔥</button>
+    <button data-element="air" title="Air Nomads">💨</button>
+    <button data-element="water" title="Water Tribe">🌊</button>
+    <button data-element="earth" title="Earth Kingdom">🪨</button>
+    <button data-element="fire" title="Fire Nation">🔥</button>
   </nav>
+  <p class="element-hint" id="element-hint" aria-hidden="true"></p>
   <main class="page">
 
     <!-- Intro -->
@@ -240,12 +241,44 @@
 
   <script>
     const root = document.documentElement;
-    const buttons = document.querySelectorAll('.element-switch button');
+    const switcher = document.querySelector('.element-switch');
+    const buttons = switcher.querySelectorAll('button');
+    const hint = document.getElementById('element-hint');
+
+    const lines = {
+      air: 'air nomads welcome you',
+      water: 'water tribe approved',
+      earth: 'welcome to ba sing se',
+      fire: 'everything changed when the fire nation attacked'
+    };
+
+    let flashTimer = null;
+    let flashing = false;
 
     function paintActive() {
       const current = root.getAttribute('data-theme') || 'air';
       buttons.forEach(b => b.classList.toggle('active', b.dataset.element === current));
     }
+
+    function flash(text, ms) {
+      clearTimeout(flashTimer);
+      hint.textContent = text;
+      hint.classList.add('show');
+      flashing = Boolean(ms);
+      if (ms) {
+        flashTimer = setTimeout(() => {
+          hint.classList.remove('show');
+          flashing = false;
+        }, ms);
+      }
+    }
+
+    switcher.addEventListener('mouseenter', () => {
+      if (!flashing) flash('choose your element');
+    });
+    switcher.addEventListener('mouseleave', () => {
+      if (!flashing) hint.classList.remove('show');
+    });
 
     buttons.forEach(b => b.addEventListener('click', () => {
       const el = b.dataset.element;
@@ -257,6 +290,7 @@
         localStorage.setItem('element', el);
       }
       paintActive();
+      flash(lines[el], 3000);
     }));
 
     paintActive();
