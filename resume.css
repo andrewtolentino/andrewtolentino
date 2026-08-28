@@ -12,7 +12,7 @@
 :root {
   --cream: #fbf6ea;
   --forest: #6b4413;
-  --forest-soft: #b3812f;
+  --forest-soft: #7f5a1d;
   --rule: rgba(107, 68, 19, 0.16);
 
   --font-sans: 'DM Sans', sans-serif;
@@ -22,7 +22,7 @@
 :root[data-theme="water"] {
   --cream: #142330;
   --forest: #ddeaf4;
-  --forest-soft: #86aecb;
+  --forest-soft: #9fc0d8;
   --rule: rgba(221, 234, 244, 0.18);
 }
 
@@ -30,7 +30,7 @@
 :root[data-theme="earth"] {
   --cream: #202b19;
   --forest: #ecf2df;
-  --forest-soft: #a3b48d;
+  --forest-soft: #b1c19c;
   --rule: rgba(236, 242, 223, 0.18);
 }
 
@@ -38,7 +38,7 @@
 :root[data-theme="fire"] {
   --cream: #2b1312;
   --forest: #f6e6d8;
-  --forest-soft: #d29a6a;
+  --forest-soft: #ddad82;
   --rule: rgba(246, 230, 216, 0.18);
 }
 
@@ -181,7 +181,7 @@ a:hover {
 
 .contact {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .contact .dot {
@@ -258,7 +258,7 @@ a:hover {
 
 .book-link {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 12px;
 }
 
