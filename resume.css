@@ -266,6 +266,25 @@ a:hover {
   text-decoration-color: var(--forest-soft);
 }
 
+/* CTA button */
+.cta-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  background-color: var(--forest);
+  color: var(--cream);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s ease, background-color 0.35s ease, color 0.35s ease;
+}
+
+.cta-button:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
 /* Skills — three-column grid inside the entries column */
 .skills-grid {
   display: grid;
