@@ -234,7 +234,7 @@
     </section>
 
     <footer class="footer">
-      <p>Andrew Tolentino · San Francisco, CA</p>
+      <p>© <span id="copyright-year">2026</span> Andrew Tolentino · San Francisco, CA</p>
     </footer>
 
   </main>
@@ -294,6 +294,8 @@
     }));
 
     paintActive();
+
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
